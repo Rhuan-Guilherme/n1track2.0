@@ -56,6 +56,7 @@ const cadastroStore = useCadastroStore();
 
         <div class="mt-10">
           <button
+          
             type="submit"
             class="text-white bg-azul-600 font-medium rounded-lg text-sm w-full sm:w-auto px-7 py-3 text-center"
           >

@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router';
 
 export const useLoginStore = defineStore('login', () => {
     const router = useRouter()
+    const loading = ref(true)
 
     const email = ref('')
     const senha = ref('')
@@ -38,10 +39,12 @@ export const useLoginStore = defineStore('login', () => {
             autenticado.value = false
           }
 
-          console.log(response.data);
-    
+          dadosUsuario.value = response.data
+          loading.value = true
         } catch (error) {
            console.error("erro ao cadastrar: ", error)
+        } finally{
+          loading.value = false
         }
     };
 
@@ -52,7 +55,8 @@ export const useLoginStore = defineStore('login', () => {
       dadosUsuario.value = null
       router.push({ name: 'login' })
     }
+    
   
 
-  return { logaUsuario, email, senha, dadosUsuario, autenticado, fazLogout }
+  return { logaUsuario, email, senha, dadosUsuario, autenticado, fazLogout, loading }
 })

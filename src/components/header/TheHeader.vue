@@ -1,6 +1,6 @@
 <script setup>
 import { useLoginStore } from '@/stores/login'
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
 import { useDark, useToggle } from '@vueuse/core'
 
@@ -12,12 +12,15 @@ const isDark = useDark(true)
 const toggleDark = useToggle(isDark)
 
 const loginStore = useLoginStore()
-const dados = loginStore.dadosUsuario
+const dados = ref(loginStore.dadosUsuario)
+
+
 </script>
 
 <template>
  
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
+  <h1>{{ dados }}</h1>
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <RouterLink to="/home" class="flex items-center">
                 <span class="material-symbols-outlined text-4xl text-blue-700 dark:text-blue-600">headset_mic</span>
@@ -31,8 +34,8 @@ const dados = loginStore.dadosUsuario
       <!-- Dropdown menu -->
       <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
         <div class="px-4 py-3">
-          <span class="block text-sm text-gray-900 dark:text-white">{{ dados.nome }}</span>
-          <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ dados.email }}</span>
+          <span v-if="dados" class="block text-sm text-gray-900 dark:text-white">{{ dados.nome }}</span>
+          <span  v-if="dados" class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ dados.email }}</span>
         </div>
         <ul class="py-2" aria-labelledby="user-menu-button">
           <li>
