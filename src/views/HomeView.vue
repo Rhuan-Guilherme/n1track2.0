@@ -1,5 +1,6 @@
 <script setup>
-import Navbar from '@/components/header/TheHeader.vue'
+import Navbar from '@/components/layout/TheHeader.vue'
+import Formulario from '@/components/cadastro/TheForm.vue'
 import { useLoginStore } from '@/stores/login'
 const loginStore = useLoginStore()
 const dados = loginStore.dadosUsuario
@@ -9,4 +10,5 @@ const dados = loginStore.dadosUsuario
 
 <template>
    <Navbar />
+   <Formulario />
 </template>

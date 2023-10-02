@@ -20,7 +20,6 @@ const dados = ref(loginStore.dadosUsuario)
 <template>
  
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
-  <h1>{{ dados }}</h1>
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <RouterLink to="/home" class="flex items-center">
                 <span class="material-symbols-outlined text-4xl text-blue-700 dark:text-blue-600">headset_mic</span>
