@@ -20,6 +20,7 @@ const ticketStore = useTicketStore();
                        Nome
                      </span>
                      <input v-model="ticketStore.nome" name="nome" type="text" id="website-admin" class="rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                     <h1>{{ ticketStore.nome }}</h1>
                   </div>
                   
                   <div class="flex w-full">

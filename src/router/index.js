@@ -10,27 +10,27 @@ const router = createRouter({
       path: '/',
       name: 'login',
       component: loginView,
-      beforeEnter: (to, from, next) =>{
-        const store = useLoginStore()
-        if (!store.autenticado) {
-          next();
-        } else {
-          next('/home'); 
-        }
-      }
+      // beforeEnter: (to, from, next) =>{
+      //   const store = useLoginStore()
+      //   if (!store.autenticado) {
+      //     next();
+      //   } else {
+      //     next('/home'); 
+      //   }
+      // }
     },
     {
       path: '/home',
       name: 'home',
       component: () => import('../views/HomeView.vue'),
-      beforeEnter: (to, from, next) =>{
-        const store = useLoginStore()
-        if (store.autenticado) {
-          next();
-        } else {
-          next('/'); 
-        }
-      }
+      // beforeEnter: (to, from, next) =>{
+      //   const store = useLoginStore()
+      //   if (store.autenticado) {
+      //     next();
+      //   } else {
+      //     next('/'); 
+      //   }
+      // }
     }
   ]
 })
