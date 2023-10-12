@@ -1,6 +1,9 @@
 <script setup>
 import { useReturnStore } from '@/stores/returnTickets'
 import { useLoginStore } from '@/stores/login';
+import { useDeleteStore } from '@/stores/optionsTicket'
+
+const deleteStore = useDeleteStore()
 const loginSotre = useLoginStore()
 const store = useReturnStore()
 
@@ -11,8 +14,11 @@ console.log(store.userData);
 
 <template>
     <div class="bg-azul-900 p-3 h-auto flex flex-wrap justify-center gap-3">
-        <div v-for="dados in store.userData" :key="dados.id" class="w-52 bg-azul-950 border text-white p-2 rounded-lg">
+        <div v-for="dados in store.userData" :key="dados.id" :class="{ 'ativado': dados.status == 'Fechado' }" class="w-52 bg-azul-950 border text-white p-2 rounded-lg">
             <div>
+                <button @click="deleteStore.deleteTicket(dados.id)" >Deletar</button>
+                <button @click="deleteStore.concluiTicket(dados.id)" >Concluir</button>
+                
                 {{ dados.tipo }}
                 {{ dados.id }}
             </div>
@@ -46,5 +52,7 @@ console.log(store.userData);
 </template>
 
 <style scoped>
-
+.ativado{
+    @apply bg-green-500;
+}
 </style>
