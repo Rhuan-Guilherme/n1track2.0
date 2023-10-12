@@ -33,7 +33,7 @@ export const useLoginStore = defineStore('login', () => {
           if(response.data != 'Usuário não encontrado'){
             localStorage.setItem('autenticado', JSON.stringify(true))
             localStorage.setItem('dadosUsuario', JSON.stringify(response.data))
-            router.push({ name: 'home' });
+            router.push({ name: 'tickets' });
             autenticado.value = true
           } else{
             autenticado.value = false

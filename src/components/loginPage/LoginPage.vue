@@ -14,12 +14,12 @@ const loginStore = useLoginStore();
         <p class="text-cinza-200">Ainda não tem cadastro?<span @click="Switch.toggle"  class="text-azul-600 font-bold ml-2 cursor-pointer">Cadastre-se</span></p>
       </div>
       <div>
-        <form action="" class="flex flex-col gap-8">
+        <form @submit.prevent="loginStore.logaUsuario" class="flex flex-col gap-8">
           <div>
-            <input type="text" placeholder="Email" class="input">
+            <input v-model="loginStore.email" type="text" placeholder="Email" class="input">
           </div>
           <div>
-            <input type="text" placeholder="Senha" class="input">
+            <input v-model="loginStore.senha" type="password" placeholder="Senha" class="input">
           </div>
           <div>
             <button type="submit" class="h-14 w-40 bg-gradient-to-t from-[#0449A4] to-[#006EFF] rounded-full text-lg text-cinza-100 font-bold">

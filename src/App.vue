@@ -9,7 +9,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <RouterView class="bg-black h-screen" />
+  <div class="h-screen w-screen bg-gray-100 dark:bg-azul-escuro-950">
+    <RouterView class="bg-black h-screen" />
+
+  </div>
   
 </template>
 
