@@ -15,6 +15,7 @@ export const useTicketStore = defineStore('ticket', () => {
     const local = ref('');
     const chamado = ref('')
     const destinatario = ref('')
+    const criador = ref('')
     const userId = ref()
     const tipo = ref()
     
@@ -33,6 +34,7 @@ export const useTicketStore = defineStore('ticket', () => {
             chamado: chamado.value,
             destinatario: destinatario.value,
             userId: loginSotre.dadosUsuario.id,
+            criador: loginSotre.dadosUsuario.nome,
             tipo: tipoc
           })
     
@@ -56,5 +58,5 @@ export const useTicketStore = defineStore('ticket', () => {
         }
     };
 
-  return { cadastraTicket, retorno, nome, login, ramal, patrimonio, informacao, local, userId, tipo, destinatario, chamado  }
+  return { cadastraTicket, retorno, nome, login, ramal, patrimonio, informacao, local, userId, tipo, destinatario, chamado, criador  }
 })

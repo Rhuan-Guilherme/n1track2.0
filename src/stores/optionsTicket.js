@@ -42,5 +42,56 @@ export const useDeleteStore = defineStore('delete', () => {
         });
       }
 
-  return {  deleteTicket, concluiTicket  }
+
+      const nome = ref('');
+      const login = ref('');
+      const ramal = ref('');
+      const patrimonio = ref('');
+      const informacao = ref('');
+      const local = ref('');
+      const chamado = ref('')
+      const destinatario = ref('')
+      const userId = ref()
+      const tipo = ref()
+
+      const retorno = ref()
+
+    const atualizaTicket = async (id) => {
+        try {
+          console.log("Dados antes da submissão:", nome.value, login.value, ramal.value, patrimonio.value, informacao.value, local.value, userId.value, tipo.value);
+          const response = await axios.post("http://localhost/apiphp/updateTicket.php", {
+            chamado_id: id,
+            nome: nome.value,
+            login: login.value,
+            ramal: ramal.value,
+            patrimonio: patrimonio.value,
+            informacao: informacao.value,
+            local: local.value,
+            chamado: chamado.value,
+            destinatario: destinatario.value,
+            userId: loginSotre.dadosUsuario.id,
+            
+          })
+    
+          retorno.value = response.data
+          console.log(response.data)
+          nome.value = ""
+          login.value = ""
+          ramal.value = ""
+          patrimonio.value = ""
+          informacao.value = ""
+          local.value = ""
+          chamado.value = ""
+          destinatario.value = ""
+          
+        
+          
+        } catch (error) {
+           console.error("erro ao cadastrar: ", error)
+        }finally {
+          returnStore.fetchUserData(loginSotre.dadosUsuario.id)
+        }
+    };
+
+  return {  deleteTicket, concluiTicket, atualizaTicket, nome, login, ramal, patrimonio, local, informacao  }
 })

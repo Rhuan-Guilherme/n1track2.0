@@ -6,71 +6,55 @@ const store = useTicketStore()
 
 
 <template>
-      <div class="p-4 flex justify-center w-full mt-5">
-         <div class="w-full xl:w-4/5">
-            <form @submit.prevent="store.cadastraTicket('reiteracao')" class="flex flex-col gap-5">
-               <div class="w-full flex gap-4">
-                  <div class="w-full">
-                     <div class="flex">
-                        <span class="span ">
-                           Nome
-                        </span>
-                        <input v-model="store.nome" type="text" id="website-admin" class="input">
-                     </div>
-
-                  </div>
-                  <div class="w-full">
-                     <div class="flex">
-                        <span class="span">
-                           Login
-                        </span>
-                        <input v-model="store.login" type="text" id="website-admin" class="input">
-                     </div>
-                  </div>
+<div>
+      <div>
+         <form @submit.prevent="store.cadastraTicket('reiteracao')" class="flex flex-col gap-6">
+           
+            <div class="flex flex-col md:flex-row gap-3">
+               <div class="flex flex-col w-full">
+                  <label class="label" for="nome">Nome do Usuário</label>
+                  <input v-model="store.nome" id="nome" class="input h-10 w-auto" type="text">
                </div>
-               <div class="w-full flex gap-4">
-                  <div class="w-full">
-                     <div class="flex">
-                        <span class="span">
-                           Ramal
-                        </span>
-                        <input v-model="store.ramal" type="text" id="website-admin" class="input">
-                     </div>
-
-                  </div>
+               <div class="flex flex-col w-full">
+                  <label class="label" for="login">Login do Usuário</label>
+                  <input v-model="store.login" id="login" class="input h-10 w-auto" type="text">
                </div>
-               <div>
-                  <div class="flex">
-                     <span class="span">
-                        N° Chamado
-                     </span>
-                     <input v-model="store.chamado" type="text" id="website-admin" class="input">
-                  </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-3">
+               <div class="flex flex-col w-full">
+                  <label class="label" for="chamado">N° do chamado</label>
+                  <input v-model="store.chamado" id="chamado" class="input h-10" type="text">
                </div>
-
-               <div>
-                  <button type="submit" class="h-10 w-32 bg-gradient-to-t from-[#0449A4] to-[#006EFF] rounded-md text-md text-cinza-100 font-bold">
-              Registrar
-            </button>
+               <div class="flex flex-col w-full">
+                  <label class="label" for="ramal">Ramal</label>
+                  <input v-model="store.ramal" id="ramal" class="input h-10" type="text">
                </div>
-            </form>
-         </div>
+            </div>
 
-
+            <div>
+               <button type="submit" class="h-10 w-36 bg-gradient-to-t from-[#0449A4] to-[#006EFF] rounded-md text-md text-cinza-100 font-bold">Registrar</button>
+            </div>
+         </form>
       </div>
-  
-
-
+   </div>
 </template>
 
 <style scoped>
 
 
-.input {
-   @apply rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+.label{
+   color: #B8B8B8;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 98%; 
+   margin-bottom: 5px;
 }
 
-.span {
-   @apply inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-100 dark:border-gray-600 font-semibold;
+.input {
+   color: white;
+   border-radius: 10px;
+   background: #292929;
+   border: none;
 }
 </style>

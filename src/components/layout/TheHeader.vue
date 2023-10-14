@@ -19,11 +19,11 @@ const dados = ref(loginStore.dadosUsuario)
 
 <template>
  
-<nav class="bg-white border-b border-gray-500 dark:bg-gray-900">
+<nav class="bg-white border-b border-cinza-700 dark:bg-cinza-950">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <RouterLink to="/home" class="flex items-center">
                 <img src="@/assets/img/headset.svg" class="w-10 mr-2" alt="">
-                <span class="self-center text-3xl font-semibold whitespace-nowrap dark:text-white">N1Track</span>
+                <span class="text-white font-sans text-3xl font-medium leading-tight">N1Track</span>
     </RouterLink>
   <div class="flex items-center justify-end md:order-2 md:w-40">
       <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
@@ -33,7 +33,7 @@ const dados = ref(loginStore.dadosUsuario)
       <!-- Dropdown menu -->
       <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
         <div class="px-4 py-3">
-          <span class="block text-sm text-gray-900 dark:text-white">{{ dados.nome }}</span>
+          <span class="block text-sm text-cinza-950 dark:text-white">{{ dados.nome }}</span>
           <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ dados.email }}</span>
         </div>
         <ul class="py-2" aria-labelledby="user-menu-button">
@@ -72,15 +72,15 @@ const dados = ref(loginStore.dadosUsuario)
     </button>
   </div>
   <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-    <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+    <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-cinza-950 dark:border-gray-700">
       <li>
-        <a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Registrar</a>
+        <a href="#" class="text-white font-roboto text-base font-medium leading-tight hover:text-azul-600" aria-current="page">Registrar</a>
       </li>
       <li>
-        <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Desempenho</a>
+        <a href="#" class="text-white font-roboto text-base font-medium leading-tight hover:text-azul-600">Desempenho</a>
       </li>
       <li>
-        <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Paineis</a>
+        <a href="#" class="text-white font-roboto text-base font-medium leading-tight hover:text-azul-600">Chamados</a>
       </li>
 
     </ul>
