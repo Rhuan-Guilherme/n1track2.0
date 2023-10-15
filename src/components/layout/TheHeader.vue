@@ -19,11 +19,11 @@ const dados = ref(loginStore.dadosUsuario)
 
 <template>
  
-<nav class="bg-white border-b border-cinza-700 dark:bg-cinza-950">
+<nav class="bg-cinza-100 border-b border-cinza-200 dark:border-cinza-700 dark:bg-cinza-950">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <RouterLink to="/home" class="flex items-center">
+    <RouterLink to="/tickets" class="flex items-center">
                 <img src="@/assets/img/headset.svg" class="w-10 mr-2" alt="">
-                <span class="text-white font-sans text-3xl font-medium leading-tight">N1Track</span>
+                <span class="dark:text-white font-sans text-3xl font-medium leading-tight">N1Track</span>
     </RouterLink>
   <div class="flex items-center justify-end md:order-2 md:w-40">
       <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
@@ -37,14 +37,7 @@ const dados = ref(loginStore.dadosUsuario)
           <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ dados.email }}</span>
         </div>
         <ul class="py-2" aria-labelledby="user-menu-button">
-          <li>
-            <div href="#" class="flex gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-              <div class="flex items-center justify-center">
-                <span class="material-symbols-outlined text-[1.2rem]">settings</span>
-              </div>
-              <div>Configurações</div>
-            </div>
-          </li>
+
           <li>
             <div @click="toggleDark()" href="#" class="cursor-pointer flex gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
               <div class="flex items-center justify-center">
@@ -72,15 +65,15 @@ const dados = ref(loginStore.dadosUsuario)
     </button>
   </div>
   <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-    <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-cinza-950 dark:border-gray-700">
+    <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-cinza-100 dark:bg-gray-800 md:dark:bg-cinza-950 dark:border-gray-700">
       <li>
-        <a href="#" class="text-white font-roboto text-base font-medium leading-tight hover:text-azul-600" aria-current="page">Registrar</a>
+        <RouterLink to="/tickets" class="dark:text-white font-roboto text-base font-medium leading-tight hover:text-azul-600" aria-current="page">Registrar</RouterLink>
       </li>
       <li>
-        <a href="#" class="text-white font-roboto text-base font-medium leading-tight hover:text-azul-600">Desempenho</a>
+        <RouterLink to="/desempenho" class="dark:text-white font-roboto text-base font-medium leading-tight hover:text-azul-600">Desempenho</RouterLink>
       </li>
       <li>
-        <a href="#" class="text-white font-roboto text-base font-medium leading-tight hover:text-azul-600">Chamados</a>
+        <RouterLink to="/chamados" class="dark:text-white font-roboto text-base font-medium leading-tight hover:text-azul-600">Chamados</RouterLink>
       </li>
 
     </ul>

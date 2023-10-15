@@ -3,6 +3,8 @@ import  axios  from  'axios' ;
 import { defineStore } from 'pinia'
 import { useLoginStore } from './login';
 import { useReturnStore } from '@/stores/returnTickets'
+import { useFiltroStore } from './filtroTicket';
+const filtroStore = useFiltroStore()
 const returnStore = useReturnStore()
 const loginSotre = useLoginStore()
 
@@ -18,6 +20,7 @@ export const useDeleteStore = defineStore('delete', () => {
           .then(data => {
             console.log(data.message); 
             returnStore.fetchUserData(loginSotre.dadosUsuario.id)
+            filtroStore.fetchUserData(loginSotre.dadosUsuario.id)
           })
           .catch(error => {
             console.error('Erro:', error);
@@ -30,6 +33,25 @@ export const useDeleteStore = defineStore('delete', () => {
         axios.post("http://localhost/apiphp/concluiTicket.php", { id: ticketId.value })
         .then(response => {
             returnStore.fetchUserData(loginSotre.dadosUsuario.id)
+            filtroStore.fetchUserData(loginSotre.dadosUsuario.id)
+            if (response.data.success) {
+            console.log("Sucesso", response.data)
+            } else {
+            // Trate erros ou exiba mensagens de erro
+            console.error(response.data.message);
+            }
+        })
+        .catch(error => {
+            console.error("Erro na solicitação POST:", error);
+        });
+      }
+
+      const ReturnConcluiTicket = async (id) => {
+        ticketId.value = id
+        axios.post("http://localhost/apiphp/returnConcluido.php", { id: ticketId.value })
+        .then(response => {
+            returnStore.fetchUserData(loginSotre.dadosUsuario.id)
+            filtroStore.fetchUserData(loginSotre.dadosUsuario.id)
             if (response.data.success) {
             console.log("Sucesso", response.data)
             } else {
@@ -93,5 +115,5 @@ export const useDeleteStore = defineStore('delete', () => {
         }
     };
 
-  return {  deleteTicket, concluiTicket, atualizaTicket, nome, login, ramal, patrimonio, local, informacao  }
+  return {  deleteTicket, concluiTicket, atualizaTicket, nome, login, ramal, patrimonio, local, informacao, ReturnConcluiTicket  }
 })

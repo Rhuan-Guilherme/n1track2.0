@@ -31,6 +31,32 @@ const router = createRouter({
           next('/'); 
         }
       }
+    },
+    {
+      path: '/chamados',
+      name: 'chamados',
+      component: () => import('../views/ChamadosView.vue'),
+      beforeEnter: (to, from, next) =>{
+        const store = useLoginStore()
+        if (store.autenticado) {
+          next();
+        } else {
+          next('/'); 
+        }
+      }
+    },
+    {
+      path: '/desempenho',
+      name: 'desempenho',
+      component: () => import('../views/DesempenhoView.vue'),
+      beforeEnter: (to, from, next) =>{
+        const store = useLoginStore()
+        if (store.autenticado) {
+          next();
+        } else {
+          next('/'); 
+        }
+      }
     }
   ]
 })

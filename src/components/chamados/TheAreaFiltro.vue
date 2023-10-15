@@ -1,36 +1,25 @@
 <script setup>
-import { useReturnStore } from '@/stores/returnTickets'
-import { useLoginStore } from '@/stores/login';
-import { useDeleteStore } from '@/stores/optionsTicket'
 import { ref, onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
+import { useFiltroStore } from '@/stores/filtroTicket'
+import { useDeleteStore } from '@/stores/optionsTicket'
+const storeFiltro = useFiltroStore()
+const deleteStore = useDeleteStore()
 
 
 onMounted(() => {
     initFlowbite();
 })
 
-let modal = ref(false)
 
-function openModal() {
-    modal.value = true
-}
 
-function doneModal() {
-    modal.value = false
-}
 
-const deleteStore = useDeleteStore()
-const loginSotre = useLoginStore()
-const store = useReturnStore()
-
-store.fetchUserData(loginSotre.dadosUsuario.id)
 
 </script>
 
 <template>
     <div class="fundo w-11/12 h-auto p-3 flex flex-wrap items-center justify-center gap-3 ">
-        <div v-for="dados in store.userData" :key="dados.id" :class="{ 'ativado': dados.status == 'Fechado' }"
+        <div v-for="dados in storeFiltro.userData" :key="dados.id" :class="{ 'ativado': dados.status == 'Fechado' }"
             class="fundoCard text-white p-4 max-w-xs w-full relative ">
             
             <button @click="deleteStore.ReturnConcluiTicket(dados.id)" v-if="dados.status == 'Fechado'" class="absolute inline-flex items-center justify-center w-6 h-6 font-bold hover:scale-125 text-white hover:bg-red-500  bg-green-500 rounded-md -top-2 -right-2 ">
