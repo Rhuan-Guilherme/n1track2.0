@@ -15,7 +15,7 @@ export const useFiltroStore = defineStore('returnFiltro', () => {
   const fetchUserData = async (userId) => {
     loading.value = true;
     try {
-      let apiUrl = `http://localhost/apiphp/filtroTickets.php?user_id=${userId}`;
+      let apiUrl = `https://n1track.com//filtroTickets.php?user_id=${userId}`;
       if (ticketTypeFilter.value) {
         apiUrl += `&tipo_ticket=${ticketTypeFilter.value}`;
       }

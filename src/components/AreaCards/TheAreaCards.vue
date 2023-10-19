@@ -118,7 +118,7 @@ store.fetchUserData(loginSotre.dadosUsuario.id)
 
             <div class="flex gap-2 justify-center fundoOptionCards p-2 mt-3 " :class="{ 'esconder': dados.status == 'Fechado' }">
                 <button @click="deleteStore.deleteTicket(dados.id)"  type="button" class="fundoOptions py-2 px-4">Deletar</button>
-                <button @click="openModal()"  type="button" class="fundoOptions py-2 px-4">Editar</button>
+                <!-- <button @click="openModal()"  type="button" class="fundoOptions py-2 px-4">Editar</button> -->
                 <button  @click="deleteStore.concluiTicket(dados.id)" type="button" class="fundoOptions py-2 px-4">Concluir</button>
             </div>
 

@@ -22,7 +22,7 @@ export const useLoginStore = defineStore('login', () => {
     
     const logaUsuario = async () => {
         try {
-          const response = await axios.post("http://localhost/apiphp/login.php", {
+          const response = await axios.post("https://n1track.com/login.php", {
             email: email.value,
             senha: senha.value
           })

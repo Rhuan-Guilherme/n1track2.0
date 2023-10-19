@@ -11,7 +11,7 @@ export const useCadastroStore = defineStore('cadastro', () => {
     const cadastrarUsuario = async () => {
         try {
           console.log("Dados antes da submissão:", email.value, senha.value);
-          const response = await axios.post("http://localhost/apiphp/api.php", {
+          const response = await axios.post("https://n1track.com/api.php", {
             nome: nome.value,
             email: email.value,
             senha: senha.value

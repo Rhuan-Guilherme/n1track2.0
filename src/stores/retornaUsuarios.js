@@ -11,7 +11,7 @@ export const useReturnUsuarioStore = defineStore('returnUsuario', () => {
     const fetchUserData = async () => {
         loading.value = true;
         try {
-          const response = await axios.get(`http://localhost/apiphp/usuariosReturn.php?`);
+          const response = await axios.get(`https://n1track.com/usuariosReturn.php?`);
           userData.value = response.data;
           error.value = null;
         } catch (err) {

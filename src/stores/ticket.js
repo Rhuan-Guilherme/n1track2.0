@@ -24,7 +24,7 @@ export const useTicketStore = defineStore('ticket', () => {
     const cadastraTicket = async (tipoc) => {
         try {
           console.log("Dados antes da submissão:", nome.value, login.value, ramal.value, patrimonio.value, informacao.value, local.value, userId.value, tipo.value);
-          const response = await axios.post("http://localhost/apiphp/ticket.php", {
+          const response = await axios.post("https://n1track.com/ticket.php", {
             nome: nome.value,
             login: login.value,
             ramal: ramal.value,

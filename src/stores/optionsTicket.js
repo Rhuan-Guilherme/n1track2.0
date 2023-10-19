@@ -13,7 +13,7 @@ export const useDeleteStore = defineStore('delete', () => {
     
     const deleteTicket = async (id) => {
         ticketId.value = id 
-        fetch(`http://localhost/apiphp/apagarTicket.php?id=${ticketId.value}`, {
+        fetch(`https://n1track.com/apagarTicket.php?id=${ticketId.value}`, {
           method: 'DELETE',
         })
           .then(response => response.json())
@@ -30,7 +30,7 @@ export const useDeleteStore = defineStore('delete', () => {
 
     const concluiTicket = async (id) => {
         ticketId.value = id
-        axios.post("http://localhost/apiphp/concluiTicket.php", { id: ticketId.value })
+        axios.post("https://n1track.com/concluiTicket.php", { id: ticketId.value })
         .then(response => {
             returnStore.fetchUserData(loginSotre.dadosUsuario.id)
             filtroStore.fetchUserData(loginSotre.dadosUsuario.id)
@@ -48,7 +48,7 @@ export const useDeleteStore = defineStore('delete', () => {
 
       const ReturnConcluiTicket = async (id) => {
         ticketId.value = id
-        axios.post("http://localhost/apiphp/returnConcluido.php", { id: ticketId.value })
+        axios.post("https://n1track.com/returnConcluido.php", { id: ticketId.value })
         .then(response => {
             returnStore.fetchUserData(loginSotre.dadosUsuario.id)
             filtroStore.fetchUserData(loginSotre.dadosUsuario.id)
@@ -81,7 +81,7 @@ export const useDeleteStore = defineStore('delete', () => {
     const atualizaTicket = async (id) => {
         try {
           console.log("Dados antes da submissão:", nome.value, login.value, ramal.value, patrimonio.value, informacao.value, local.value, userId.value, tipo.value);
-          const response = await axios.post("http://localhost/apiphp/updateTicket.php", {
+          const response = await axios.post("https://n1track.com/updateTicket.php", {
             chamado_id: id,
             nome: nome.value,
             login: login.value,

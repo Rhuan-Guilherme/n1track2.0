@@ -12,7 +12,7 @@ export const useReturnStore = defineStore('returnTicket', () => {
     const fetchUserData = async (userId) => {
         loading.value = true;
         try {
-          const response = await axios.get(`http://localhost/apiphp/returnTickets.php?user_id=${userId}`);
+          const response = await axios.get(`https://n1track.com/returnTickets.php?user_id=${userId}`);
           userData.value = response.data;
           error.value = null;
         } catch (err) {
