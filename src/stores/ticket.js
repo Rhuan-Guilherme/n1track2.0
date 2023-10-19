@@ -18,12 +18,26 @@ export const useTicketStore = defineStore('ticket', () => {
     const criador = ref('')
     const userId = ref()
     const tipo = ref()
-    
     const retorno = ref()
+    const dateTime = ref()
+    
 
     const cadastraTicket = async (tipoc) => {
+      const now = new Date();
+      const dia = now.getDate();
+      const mes = now.getMonth() + 1;
+      const ano = now.getFullYear();
+      const hora = now.getHours();
+      const minuto = now.getMinutes();
+      const segundo = now.getSeconds();
+      const minutoFormatado = minuto < 10 ? `0${minuto}` : minuto;
+      const segundoFormatado = segundo < 10 ? `0${segundo}` : segundo;
+      
+      dateTime.value = `${dia}/${mes}/${ano} às ${hora}:${minutoFormatado}`;
+  
+
+
         try {
-          console.log("Dados antes da submissão:", nome.value, login.value, ramal.value, patrimonio.value, informacao.value, local.value, userId.value, tipo.value);
           const response = await axios.post("https://n1track.com/ticket.php", {
             nome: nome.value,
             login: login.value,
@@ -35,6 +49,7 @@ export const useTicketStore = defineStore('ticket', () => {
             destinatario: destinatario.value,
             userId: loginSotre.dadosUsuario.id,
             criador: loginSotre.dadosUsuario.nome,
+            created_at: dateTime.value,
             tipo: tipoc
           })
     

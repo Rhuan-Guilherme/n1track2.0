@@ -6,7 +6,6 @@ import { useRouter } from 'vue-router';
 export const useLoginStore = defineStore('login', () => {
     const router = useRouter()
     const loading = ref(true)
-
     const email = ref('')
     const senha = ref('')
     const autenticado = ref(false)
